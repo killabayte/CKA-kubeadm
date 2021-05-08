@@ -38,3 +38,52 @@ Run next command from the vagrant directory
 $ vagrant status
 ```
 
+Output:
+```shell script
+Current machine states:
+
+kubemaster                not created (virtualbox)
+kubenode01                not created (virtualbox)
+```
+
+## Step 1
+
+```shell script
+$ vagrant up
+```
+
+Command must be successfully finished, and status check should look like this:
+
+```shell script
+$ vagrant status
+```
+
+Output:
+```shell script
+Current machine states:
+
+kubemaster                running (virtualbox)
+kubenode01                running (virtualbox)
+```
+
+## Step 2
+
+Test ssh connect to the newlly created nodes
+
+```shell script
+$ vagrant ssh kubemaster
+```
+
+```shell script
+$ export kubernetesOperator="YOUR_NICKNAME_HERE"
+```
+
+```shell script
+$ echo "Hello from kubeMaster! Dear $kubernetesOperator" | 
+```
+
+Do the same for the worker instance
+
+```shell script
+$ vagrant ssh kubenode01
+```
