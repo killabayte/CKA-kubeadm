@@ -79,11 +79,19 @@ $ export kubernetesOperator="YOUR_NICKNAME_HERE"
 ```
 
 ```shell script
-$ echo "Hello from kubeMaster! Dear $kubernetesOperator" | 
+$ echo "Hello from kubeMaster! Dear $kubernetesOperator"
 ```
 
 Do the same for the worker instance
 
 ```shell script
 $ vagrant ssh kubenode01
+```
+
+```shell script
+$ export kubernetesOperator="YOUR_NICKNAME_HERE"
+```
+
+```shell script
+$ echo "Hello from kubeNode01! Dear $kubernetesOperator"
 ```
