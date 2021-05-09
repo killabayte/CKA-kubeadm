@@ -326,3 +326,9 @@ kubemaster   Ready    control-plane,master   13m   v1.21.0
 
 Status must be READY
 
+Otional. Enable on boot containerd and kubelet:
+
+```shell script
+$ sudo systemctl enable containerd
+$ sudo systemctl enable kubelet
+```
