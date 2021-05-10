@@ -30,8 +30,6 @@ Download and Install [Vagrant](https://www.vagrantup.com/) on your platform.
 - macOS
 - Arch Linux
 
-## Step 0
-
 Run next command from the vagrant directory
 
 ```shell script
@@ -45,8 +43,6 @@ Current machine states:
 kubemaster                not created (virtualbox)
 kubenode01                not created (virtualbox)
 ```
-
-## Step 1
 
 ```shell script
 $ vagrant up
@@ -65,8 +61,6 @@ Current machine states:
 kubemaster                running (virtualbox)
 kubenode01                running (virtualbox)
 ```
-
-## Step 2
 
 Test ssh connect to the newlly created nodes
 
@@ -124,6 +118,8 @@ EOF
 
 $ sudo sysctl --system
 ```
+
+**!Note: Repeat all steps for the each worker instance** 
 
 # Install runtime. containerd
 
@@ -195,6 +191,8 @@ $ sudo systemctl restart containerd
 
 When using kubeadm, manually configure the [cgroup driver for kubelet](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#configure-cgroup-driver-used-by-kubelet-on-control-plane-node)
 
+**!Note: Repeat all steps for the each worker instance** 
+
 # Installing kubeadm, kubelet and kubectl
 
 Update the apt package index and install packages needed to use the Kubernetes apt repository:
@@ -224,7 +222,9 @@ $ sudo apt-get install -y kubelet kubeadm kubectl
 $ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
-# Creating a cluster with kubeadm
+**!Note: Repeat all steps for the each worker instance** 
+
+# Creating a cluster with kubeadm(Run only on control-plane instance)
 
 ```shell script
 $ sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=192.168.56.2
@@ -333,3 +333,5 @@ $ sudo systemctl enable containerd
 $ sudo systemctl enable kubelet
 $ echo "KUBECONFIG=~/.kube/config" >> ~/.bashrc
 ```
+
+**!Note: Repeat all steps for the each worker instance** 
